@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 import "../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +19,7 @@ function Dashboard() {
     navigate("/");
   }
   useEffect(function () {
-    fetch("http://localhost:5000/api/categories")
+    fetch(`${API_URL}/api/categories`)
       .then(function (response) {
         return response.json();
       })
@@ -34,7 +35,7 @@ function Dashboard() {
     setSelectedCategory(category);
 
     const response = await fetch(
-      `http://localhost:5000/api/questions/category/${category._id}`,
+      `${API_URL}/api/questions/category/${category._id}`,
     );
 
     const data = await response.json();
@@ -46,7 +47,7 @@ function Dashboard() {
     setSelectedQuestion(question);
 
     const response = await fetch(
-      `http://localhost:5000/api/answers/question/${question._id}`,
+      `${API_URL}/api/answers/question/${question._id}`,
     );
 
     const data = await response.json();
@@ -59,7 +60,7 @@ function Dashboard() {
       return;
     }
 
-    const response = await fetch("http://localhost:5000/api/answers", {
+    const response = await fetch(`${API_URL}/api/answers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +86,7 @@ function Dashboard() {
       return;
     }
 
-    const response = await fetch("http://localhost:5000/api/questions", {
+    const response = await fetch(`${API_URL}/api/questions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
