@@ -1,0 +1,63 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@devconnect.com",
+  "password": "Test1234"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "Test1234"
+}
+
+###
+
+GET http://localhost:5000/api/categories
+
+###
+
+POST http://localhost:5000/api/questions
+Content-Type: application/json
+
+{
+  "title": "What is the difference between let and const?",
+  "body": "I am learning JavaScript and would like to understand when to use let and const.",
+  "category": "6aa9c756957720a89a7cec4f",
+  "user": "6aa9a756b5897eb24b57c2f4"
+}
+
+###
+
+GET http://localhost:5000/api/questions/category/6aa9c756957720a89a7cec4f
+
+###
+
+POST http://localhost:5000/api/answers
+Content-Type: application/json
+
+{
+  "body": "Use let when a variable may change, and const when the variable should not be reassigned.",
+  "question": "6aa9ce2d84249228efcf33b4",
+  "user": "6aa9a756b5897eb24b57c2f4"
+}
+
+###
+
+GET http://localhost:5000/api/answers/question/6aa9ce2d84249228efcf33b4
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "devuser",
+  "password": "Test1234"
+}
